@@ -1,5 +1,10 @@
 .single-flag-container{
-    margin: 0 50px;
+    margin-top: 12vh;
+    padding: 0px 50px 0 50px;
+    width: 100vw;
+    height: 88vh;
+
+    background-color: hsl(0, 0%, 98%);
 }
 
 .back-button-positioner{

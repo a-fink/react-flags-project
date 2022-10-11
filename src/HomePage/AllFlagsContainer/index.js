@@ -27,10 +27,10 @@ function AllFlagsContainer(searchString){
             .then((result) => {
                 setIsLoaded(true);
                 setCountries(result);
-            },
-            (error) => {
+            })
+            .catch((err) => {
                 setIsLoaded(true);
-                setError(error);
+                setError(err);
             });
     }, []);
 
@@ -42,15 +42,16 @@ function AllFlagsContainer(searchString){
     else if(!isLoaded){
         return (
             <div className="all-flags_loading">
-                Loading...
+                <p className="all-flags_message">Loading...</p>
             </div>
         );
     }
-    // if data has loaded and countries array is empty display a message to that effect
-    else if(isLoaded && countries.length === 0){
+    // when a request fails to find results the response object will have a message key
+    // if data has loaded and a message key exists then no results were found - show message to that effect
+    else if(isLoaded && countries.message){
         return (
             <div className="all-flags_no-results">
-                Your search returned no matching countries, please try again...
+                <p className="all-flags_message">Your search returned no matching countries, please try again...</p>
             </div>
         );
     }

@@ -4,21 +4,23 @@
 /* overall react component styling */
 #root{
     box-sizing: border-box;
-    width: 100%;
+    width: 100vw;
+    min-width: 400px;
+    height: 100vh;
 
-    border: 1px solid black;
     font-family: 'Nunito Sans', sans-serif;
+    background-color: hsl(0, 0%, 98%);
 }
 
 .app{
-    width: 100%;
-    height: auto;
+    box-sizing: border-box;
+    width: 100vw;
+    height: 100vh;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
 
-    border: 1px solid black;
     font-family: 'Nunito Sans', sans-serif;
     font-size: 14px;
 }

@@ -1,8 +1,10 @@
 import './SmallFlagContainer.css'
 import {Link} from 'react-router-dom';
 
+// inputs - props from parent including name, population, region, capital, flag url, and country code
+// return - jsx element that displays information & links to info page for single country
+// toLocaleString used below to add commas to the population numbers
 function OneFlagContainer({name, population, region, capital, flag, code}){
-    // ** TO DO ** logic to make this render each flag passed in - using flag placeholder for now
 
     return (
         <Link to={`/countries/${code}`}>
@@ -13,7 +15,7 @@ function OneFlagContainer({name, population, region, capital, flag, code}){
                     <p className="country-card_category">
                         Population:
                         <span className="country-card_data">
-                            {` ${population}`}
+                            {` ${population.toLocaleString('en-US')}`}
                         </span>
                     </p>
                     <p className="country-card_category">

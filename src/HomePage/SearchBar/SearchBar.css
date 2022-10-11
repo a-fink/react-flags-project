@@ -1,12 +1,15 @@
 .search-bar-container{
     width: 25%;
+    min-width: 250px;
 
     display: flex;
     justify-content: space-between;
     align-items: center;
 
     border-radius: 6px;
+    background-color: hsl(0, 0%, 100%);
     box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
+    color: hsl(0, 0%, 52%)
 }
 
 .search-bar{

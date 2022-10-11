@@ -4,6 +4,9 @@
     height: 100%;
 
     border-radius: 8px;
+    background-color: hsl(0, 0%, 100%);
+    box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
+    font-size: 14px;
 }
 
 .country-card_image{
@@ -13,5 +16,22 @@
 }
 
 .country-card_info{
+    padding: 20px;
     background-color: hsl(0, 0%, 100%);
+    border-radius: 0 0 8px 8px;
+}
+
+.country-card_heading{
+    margin: 0 0 15px 0;
+
+    font-size: 18px;
+}
+
+.country-card_category{
+    margin: 5px 0;
+    font-weight: 600;
+}
+
+.country-card_data{
+    font-weight: 300;
 }
