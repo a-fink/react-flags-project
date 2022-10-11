@@ -1,4 +1,4 @@
-import './OneFlagContainer.css'
+import './SmallFlagContainer.css'
 
 function OneFlagContainer(){
     // ** TO DO ** logic to make this render each flag passed in - using flag placeholder for now

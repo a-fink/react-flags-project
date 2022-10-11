@@ -1,9 +1,9 @@
-import OneFlagContainer from "../OneFlagContainer";
+import SmallFlagContainer from "../SmallFlagContainer";
 
 function AllFlagsContainer(){
     return (
         <div className="all-flags-container">
-            <OneFlagContainer />
+            <SmallFlagContainer />
         </div>
     );
 }

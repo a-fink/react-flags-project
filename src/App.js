@@ -2,6 +2,7 @@ import NavBar from './Navigation/NavBar';
 import HomePageContainer from './HomePage/HomePageContainer';
 import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './ErrorPage/PageNotFound';
+import SingleFlagContainer from './SingleFlagPage/SingleFlagContainer';
 
 
 // always render the navigation bar
@@ -19,7 +20,7 @@ function App() {
             <HomePageContainer />
           </Route>
           <Route path='/flags/:flagId'>
-            {/* FILL ME IN */}
+            <SingleFlagContainer />
           </Route>
           <Route>
             <PageNotFound />
