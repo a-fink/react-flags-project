@@ -1,0 +1,13 @@
+.mode-button{
+    padding: 5px 15px;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    border: 1px solid black;
+}
+
+.mode-text{
+    margin: 0 0 0 10px;
+}

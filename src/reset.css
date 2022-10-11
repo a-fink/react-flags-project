@@ -42,12 +42,6 @@ ul {
   list-style: none;
 }
 
-img {
-  display: block;
-  height: auto;
-  width: 100%;
-}
-
 button,
 input[type="email"],
 input[type="password"],

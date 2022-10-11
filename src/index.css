@@ -1,12 +1,34 @@
 @import url('./reset.css');
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
+/* overall react component styling */
 #root{
     box-sizing: border-box;
     width: 100%;
-    height: 100vh;
+
+    border: 1px solid black;
+    font-family: 'Nunito Sans', sans-serif;
+}
+
+.app{
+    width: 100%;
+    height: auto;
 
     display: flex;
+    flex-direction: column;
     justify-content: center;
 
     border: 1px solid black;
+    font-family: 'Nunito Sans', sans-serif;
+    font-size: 14px;
 }
+
+/* light mode inheritable properties */
+/* .light{
+
+} */
+
+/* dark mode inheritable properties */
+/* .dark{
+
+} */

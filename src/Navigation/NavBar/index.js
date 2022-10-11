@@ -1,11 +1,10 @@
 import './NavBar.css';
-import SearchBar from '../SearchBar';
 import ModeButton from '../ModeButton';
 
 function NavBar(){
     return (
         <nav>
-            <SearchBar />
+            <h1>Where in the world?</h1>
             <ModeButton />
         </nav>
     );
