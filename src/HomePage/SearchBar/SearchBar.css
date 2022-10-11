@@ -1,0 +1,20 @@
+.search-bar-container{
+    width: 25%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+
+    border-radius: 6px;
+    box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
+}
+
+.search-bar{
+    width: 100%;
+    padding: 15px;
+}
+
+.search-icon{
+    margin: 5px 0 0 15px;
+    width: 14px;
+}

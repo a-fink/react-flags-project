@@ -24,11 +24,11 @@
 }
 
 /* light mode inheritable properties */
-/* .light{
-
-} */
+.light{
+    color: hsl(200, 15%, 8%);
+}
 
 /* dark mode inheritable properties */
-/* .dark{
-
-} */
+.dark{
+    color: hsl(0, 0%, 100%);
+}

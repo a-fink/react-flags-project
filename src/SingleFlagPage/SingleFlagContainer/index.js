@@ -1,5 +1,6 @@
 import BackButton from "../../BackButton";
 import SingleFlagCard from "../SingleFlagCard";
+import './SingleFlagContainer.css';
 
 function SingleFlagContainer() {
     return (

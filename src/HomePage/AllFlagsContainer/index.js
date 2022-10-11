@@ -1,4 +1,5 @@
 import SmallFlagContainer from "../SmallFlagContainer";
+import './AllFlagsContainer.css';
 
 function AllFlagsContainer(){
     return (

@@ -1,10 +1,15 @@
 import './BackButton.css';
+import {Link} from 'react-router-dom';
 
 function BackButton(){
     return (
         <button className='back-button'>
-            <ion-icon name="arrow-back-outline" className="back-arrow-icon"></ion-icon>
-            Back
+            <Link to='/' className='back-button-link'>
+                <span className="back-arrow-icon">
+                    <ion-icon name="arrow-back-outline"></ion-icon>
+                </span>
+                Back
+            </Link>
         </button>
     );
 }

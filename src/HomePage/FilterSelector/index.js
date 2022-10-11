@@ -1,3 +1,5 @@
+import './FilterSelector.css';
+
 function FilterSelector() {
     return (
         <select name='region' className="region-selector">

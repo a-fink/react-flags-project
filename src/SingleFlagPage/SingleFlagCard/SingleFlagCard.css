@@ -1,0 +1,41 @@
+.single-flag-card{
+    width: 100%;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.single-flag_info-section{
+    width: 40%;
+    padding-left: 50px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: space-between;
+
+    font-size: 16px;
+}
+
+.single-flag_heading{
+    margin: 20px 0;
+
+    font-size: 24px;
+    font-weight: 800;
+}
+
+.single-flag_info{
+    display: grid;
+    grid-template-rows: repeat(5, 1fr);
+    grid-template-columns: repeat(2, 1fr);
+    column-gap: 50px;
+}
+
+.single-flag_category{
+    font-weight: 600;
+}
+
+.single-flag_data{
+    font-weight: 300;
+}

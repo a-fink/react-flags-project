@@ -16,49 +16,49 @@ function SingleFlagCard(){
                     <p className="single-flag_category">
                         Native Name:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                     <p className="single-flag_category">
                         Population:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                     <p className="single-flag_category">
                         Region:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                     <p className="single-flag_category">
                         Sub Region:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                     <p className="single-flag_category">
                         Capital:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                     <p className="single-flag_category">
                         Top Level Domain:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                     <p className="single-flag_category">
                         Currencies:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                     <p className="single-flag_category">
                         Languages:
                         <span className="single-flag_data">
-                            {dataPlaceholder}
+                            {` ${dataPlaceholder}`}
                         </span>
                     </p>
                 </div>
