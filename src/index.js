@@ -1,7 +1,7 @@
 import React from 'react';
 import {createRoot} from 'react-dom/client';
 import './index.css';
-import {BrowerRoute, BrowserRouter} from 'react-router-dom';
+import {BrowserRouter} from 'react-router-dom';
 import App from './App';
 
 // wrap entire App in BrowserRouter component to allow browser side routing
