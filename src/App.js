@@ -1,6 +1,7 @@
 import NavBar from './Navigation/NavBar';
 import HomePageContainer from './HomePage/HomePageContainer';
 import {Route, Switch} from 'react-router-dom';
+import PageNotFound from './ErrorPage/PageNotFound';
 
 
 // always render the navigation bar
@@ -21,7 +22,7 @@ function App() {
             {/* FILL ME IN */}
           </Route>
           <Route>
-            {/* FILL ME IN */}
+            <PageNotFound />
           </Route>
         </Switch>
     </div>
