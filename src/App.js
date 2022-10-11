@@ -19,7 +19,7 @@ function App() {
           <Route exact path='/'>
             <HomePageContainer />
           </Route>
-          <Route path='/flags/:flagId'>
+          <Route path='/countries/:code'>
             <SingleFlagContainer />
           </Route>
           <Route>
