@@ -1,6 +1,4 @@
 .back-button{
-    padding: 2px 30px 2px 27px;
-
     background-color: hsl(0, 0%, 100%);
     box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
     border-radius: 6px;
@@ -9,6 +7,8 @@
 }
 
 .back-button-link{
+    padding: 2px 30px 2px 27px;
+
     display: flex;
     justify-content: space-between;
     align-items: center;
