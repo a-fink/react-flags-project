@@ -6,23 +6,21 @@ import {useState, useEffect} from 'react';
 // input - search string from parent - either a region from filter, or a name from search bar, or all
 // returns - jsx component of a div containing small flag containers for all countries found by the search
 // redirects to the error page if an error occurs, displays a note that no results were found if search comes up empty
-function AllFlagsContainer(searchString){
-    // **TODO** use searchString coming in from parent to find the filtered array of flags
-    // for now, using 'all' to get the mapping down to the small flag container working
-    const tempSearchString = 'all';
-
+function AllFlagsContainer({searchString}){
     // useState to get values for whether data has loaded, the countries array, and whether there's an error
     // starting states are no errors, loaded is false, and countries is an empty array
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [countries, setCountries] = useState([]);
 
-    // **TODO** replace temp string below with the search string prop once get parent filtering set up
     // useEffect to search based on the search string
-    // this function component will get re-run/re-rendered each time the search string
-    // changes in it's parent component, so we only want this useEffect search to happen the first time
+    // this function component will get re-run/re-rendered each time the search string changes in it's parent component
+    // only want this useEffect search to happen the first time or anytime searchString changes
     useEffect(() => {
-        fetch(`https://restcountries.com/v3.1/${tempSearchString}`)
+        // reset loading to false so the loading element will show again when a new search is happening
+        setIsLoaded(false);
+
+        fetch(`https://restcountries.com/v3.1/${searchString}`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
@@ -32,7 +30,7 @@ function AllFlagsContainer(searchString){
                 setIsLoaded(true);
                 setError(err);
             });
-    }, []);
+    }, [searchString]);
 
     // if an error happened redirect to the error page
     if(error){
