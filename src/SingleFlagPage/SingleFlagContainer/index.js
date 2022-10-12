@@ -13,6 +13,7 @@ function SingleFlagContainer() {
     const [isLoaded, setIsLoaded] = useState(false);
     const [country, setCountry] = useState({});
 
+
     // useEffect to search based on country code gotten from the parameters
     // this function component should only get re-run/re-rendered each time a new url happens
     // from it's parent component or if someone links to the page, but just in case make it run anytime code changes
