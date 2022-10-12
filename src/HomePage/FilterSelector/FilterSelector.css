@@ -47,3 +47,10 @@
 .drop-down-button:hover{
     font-weight: 600;
 }
+
+@media screen and (max-width: 600px) {
+    .filter-selector-container{
+        width: 25%;
+        min-width: 300px;
+    }
+}
