@@ -17,13 +17,23 @@ function AllFlagsContainer({searchString}){
     // this function component will get re-run/re-rendered each time the search string changes in it's parent component
     // only want this useEffect search to happen the first time or anytime searchString changes
     useEffect(() => {
-        // reset loading to false so the loading element will show again when a new search is happening
+
+        // reset loaded to false so the loading element will show again when a new search is happening
         setIsLoaded(false);
 
+        // fetch from the api and set properties based on the result
         fetch(`https://restcountries.com/v3.1/${searchString}`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
+
+                // use a custom built in sort to put the results in alphabetical order
+                result.sort((a, b) => {
+                    if(a.name.common < b.name.common) return -1;
+                    else if(a.name.common > b.name.common) return 1;
+                    else return 0;
+                });
+
                 setCountries(result);
             })
             .catch((err) => {
