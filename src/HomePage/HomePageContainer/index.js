@@ -25,7 +25,6 @@ function HomePageContainer({lightMode}){
     // when the value of the search bar changes we want to update the search string
     // this will update what displays in the search bar and re-render the all flags container with the new search
     const changeHandler = (event) => {
-        // console.log(event.target.value)
 
         // set the search display to the new value of the search bar
         setSearchDisplay(event.target.value);
