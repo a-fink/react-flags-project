@@ -1,6 +1,6 @@
 # Flags of the World Project
 
-<!-- [Live Site](FILL IN HERE) -->
+[Live Site](https://flagsoftheworld-afink.netlify.app)
 
 ## Goals
 - To cement my knowledge of React including functional components and hooks
