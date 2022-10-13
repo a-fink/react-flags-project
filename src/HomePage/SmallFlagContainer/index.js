@@ -5,12 +5,13 @@ import {Link} from 'react-router-dom';
 // return - jsx element that displays information & links to info page for single country
 // toLocaleString used below to add commas to the population numbers
 function OneFlagContainer({name, population, region, capital, flag, code, lightMode}){
-    // set navClass variable based on lightMode
+    // set color mode variables based on lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
+    const hoverClass = (lightMode ? 'light-hover' : 'dark-hover');
 
     return (
         <Link to={`/countries/${code}`}>
-            <div className={`country-card-outer hover-bigger ${modeClass}`}>
+            <div className={`country-card-outer ${modeClass} ${hoverClass}`}>
                 <img src={flag} alt={`Flag of ${name}`} className="country-card_image" />
                 <div className="country-card_info">
                     <h4 className="country-card_heading">{name}</h4>
