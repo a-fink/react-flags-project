@@ -33,3 +33,14 @@
 .country-card_data{
     font-weight: 300;
 }
+
+@media screen and (max-width: 550px) {
+    .country-card-outer{
+        width: 250px;
+    }
+
+    .country-card_image{
+        width: 250px;
+        height: 150px;
+    }
+}

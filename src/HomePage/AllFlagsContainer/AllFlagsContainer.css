@@ -1,11 +1,12 @@
 .all-flags-container{
     width: 100%;
     padding: 10px 30px;
+    margin-top: 20px;
 
     display: flex;
     flex-wrap: wrap;
-    column-gap: 4%;
-    row-gap: 5vh;
+    column-gap: 60px;
+    row-gap: 40px;
     align-items: flex-start;
     justify-content: center;
 }
