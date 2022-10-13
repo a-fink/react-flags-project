@@ -27,14 +27,15 @@ function AllFlagsContainer({searchString}){
             .then((result) => {
                 setIsLoaded(true);
 
-                console.log(result)
-
+                // if result has a message then no array was found, so only sort when there's no message
                 // use a custom built in sort to put the results in alphabetical order
-                result.sort((a, b) => {
-                    if(a.name.common < b.name.common) return -1;
-                    else if(a.name.common > b.name.common) return 1;
-                    else return 0;
-                });
+                if(!result.message){
+                    result.sort((a, b) => {
+                        if(a.name.common < b.name.common) return -1;
+                        else if(a.name.common > b.name.common) return 1;
+                        else return 0;
+                    });
+                }
 
                 setCountries(result);
             })
