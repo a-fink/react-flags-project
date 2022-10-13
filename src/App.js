@@ -1,9 +1,11 @@
 import NavBar from './Navigation/NavBar';
 import HomePageContainer from './HomePage/HomePageContainer';
-import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './ErrorPage/PageNotFound';
 import SingleFlagContainer from './SingleFlagPage/SingleFlagContainer';
+import Footer from './Footer';
+import {Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
+
 
 // inputs - none
 // return - div containing all other application elements
@@ -39,6 +41,7 @@ function App() {
             <PageNotFound lightMode={lightMode}/>
           </Route>
         </Switch>
+        <Footer lightMode={lightMode} />
     </div>
   );
 }
