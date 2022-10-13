@@ -20,7 +20,7 @@ Users can:
 - Create React App - library used for project setup with a customized template
 - HTML5 - as JSX within React
 - CSS - styling and media breakpoints for responsive design
-- JavaScript / ES6 - importing/exporting modules, fetching from API, conditional logic and mapping within React elements
+- JavaScript / ES6 - importing/exporting modules, fetching from API, conditional logic/mapping within React elements
 - Google Fonts - custom fonts library
 - Ionicons - open-source icon library
 - Postman - testing API endpoints and exploring response data structures
