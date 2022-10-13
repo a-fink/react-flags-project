@@ -30,6 +30,7 @@ Users can:
 ## Possible Future Improvements
 - Further split out container components from presentational components
 - Add additional filtering options (sub-region)
+- Make filtering menu hide when clicking elsewhere on the page, and have filter options indicate if they are active
 - Add additional search options (capital, language, country code, etc.)
 - Add search functionality to the single country view
 - Store last search parameters used on main page so when back button is clicked the same results display
@@ -37,4 +38,4 @@ Users can:
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
 
 ### Acknowledgements
-This project is a solution to the [REST Countries API with color theme switcher challenge on Frontend Mentor](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca).
+This project is a solution to the [REST Countries API with color theme switcher](https://www.frontendmentor.io/challenges/rest-countries-api-with-color-theme-switcher-5cacc469fec04111f7b848ca) challenge on Frontend Mentor.
