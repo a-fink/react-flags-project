@@ -3,6 +3,7 @@ import SearchBar from '../SearchBar';
 import FilterSelector from '../FilterSelector';
 import AllFlagsContainer from '../AllFlagsContainer';
 import { useState } from 'react';
+import {Link} from 'react-router-dom';
 
 // inputs - variable for which color mode page is in to pass on to child elements
 // outputs - component that renders all the home page elements
@@ -42,6 +43,7 @@ function HomePageContainer({lightMode}){
 
     return (
         <div className="home-page-container">
+            <Link to='/error'>Error Test</Link>
             <div className="search-container">
                 <SearchBar searchDisplay={searchDisplay} changeHandler={changeHandler} lightMode={lightMode}/>
                 <FilterSelector clickHandler={clickHandler} lightMode={lightMode}/>
