@@ -32,7 +32,7 @@ Users can:
 - Add additional filtering options (sub-region)
 - Add additional search options (capital, language, country code, etc.)
 - Store last search parameters used on main page so when back button is clicked the same results display
-- Determine how to pass light mode / dark mode choice when redirecting to the error page
+- Determine how to pass light mode / dark mode choice when redirecting to the error page or upon page refresh
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
 
 ### Acknowledgements
