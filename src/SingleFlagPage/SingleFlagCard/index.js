@@ -58,41 +58,41 @@ function SingleFlagCard({country}){
                     <div className='single-flag_info'>
                         <p className="single-flag_category">
                             Region:
-                            <span className="single-flag_data">
+                            <span className="single-flag_data region">
                                 {` ${country.region}`}
                             </span>
                         </p>
-                        <p className="single-flag_category">
+                        <p className="single-flag_category sub-region">
                             Sub Region:
                             <span className="single-flag_data">
                                 {` ${country.subregion}`}
                             </span>
                         </p>
-                        <p className="single-flag_category">
+                        <p className="single-flag_category capital">
                             Capital:
                             <span className="single-flag_data">
                                 {` ${country.capital}`}
                             </span>
                         </p>
-                        <p className="single-flag_category">
+                        <p className="single-flag_category population">
                             Population:
                             <span className="single-flag_data">
                                 {` ${country.population.toLocaleString('en-US')}`}
                             </span>
                         </p>
-                        <p className="single-flag_category">
+                        <p className="single-flag_category tld">
                             Top Level Domain:
                             <span className="single-flag_data">
                                 {` ${country.tld}`}
                             </span>
                         </p>
-                        <p className="single-flag_category">
+                        <p className="single-flag_category currency">
                             Currencies:
                             <span className="single-flag_data">
                                 {` ${currencies}`}
                             </span>
                         </p>
-                        <p className="single-flag_category">
+                        <p className="single-flag_category language">
                             Languages:
                             <span className="single-flag_data">
                                 {` ${languages}`}

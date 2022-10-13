@@ -24,6 +24,7 @@
     .search-container{
         height: auto;
         padding: 0;
+        margin-top: 10px;
 
         flex-direction: column;
         row-gap: 20px;
