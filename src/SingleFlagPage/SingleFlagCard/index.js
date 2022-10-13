@@ -38,9 +38,9 @@ function SingleFlagCard({country, lightMode}){
     // country.currencies returns an object, push all values to array then join to string
     else{
         let currencyArray = [];
-        for (const [key, value] of Object.entries(country.currencies)){
+        Object.values(country.currencies).forEach(value => {
             currencyArray.push(value.name);
-        }
+        });
         currencies = currencyArray.join(', ');
     }
 
@@ -51,9 +51,9 @@ function SingleFlagCard({country, lightMode}){
     // country.languages is an object, push all values to array then join to string
     else{
         let languagesArray = [];
-        for(const [key, value] of Object.entries(country.languages)){
+        Object.values(country.languages).forEach(value => {
             languagesArray.push(value);
-        }
+        });
         languages = languagesArray.join(', ');
     }
 
