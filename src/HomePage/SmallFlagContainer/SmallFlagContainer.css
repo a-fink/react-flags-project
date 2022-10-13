@@ -34,6 +34,10 @@
     font-weight: 300;
 }
 
+.hover-bigger:hover{
+    box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.4);
+}
+
 @media screen and (max-width: 550px) {
     .country-card-outer{
         width: 250px;

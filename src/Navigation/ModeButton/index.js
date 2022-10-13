@@ -6,9 +6,10 @@ function ModeButton({lightMode, modeClickHandler}) {
     // set the iconName and modeClass name based on the value of the lightMode prop
     const iconName = (lightMode ? "moon-outline" : "moon");
     const modeClass = (lightMode ? 'light-element' : 'dark-button');
+    const hoverClass = (lightMode ? 'light-hover' : 'dark-hover');
 
     return (
-        <button className={`mode-button ${modeClass}`} onClick={modeClickHandler}>
+        <button className={`mode-button ${modeClass} ${hoverClass}`} onClick={modeClickHandler}>
             <ion-icon name={iconName} className="moon-icon"></ion-icon>
             <span className="mode-text">Dark Mode</span>
         </button>

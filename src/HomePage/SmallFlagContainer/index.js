@@ -10,7 +10,7 @@ function OneFlagContainer({name, population, region, capital, flag, code, lightM
 
     return (
         <Link to={`/countries/${code}`}>
-            <div className={`country-card-outer ${modeClass}`}>
+            <div className={`country-card-outer hover-bigger ${modeClass}`}>
                 <img src={flag} alt={`Flag of ${name}`} className="country-card_image" />
                 <div className="country-card_info">
                     <h4 className="country-card_heading">{name}</h4>

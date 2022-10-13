@@ -116,7 +116,7 @@
 .neighbors-link{
     padding: 5px 25px;
 
-    box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.12);
+    box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
     border-radius: 6px;
     font-size: 14px;
 }

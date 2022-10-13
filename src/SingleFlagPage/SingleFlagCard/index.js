@@ -5,8 +5,9 @@ import './SingleFlagCard.css';
 // input - a country found from the API by the parent component, and variable for which color mode page is in
 // output - a JSX element rendering the country flag and information
 function SingleFlagCard({country, lightMode}){
-    // set color mode variable based on lightMode
+    // set color mode variables based on lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
+    const hoverClass = (lightMode ? 'light-hover' : 'dark-hover');
 
     // useState to get the county's neighbors, and whether there was an error
     // starting states are no errors, and neighbors is an empty array
@@ -120,11 +121,12 @@ function SingleFlagCard({country, lightMode}){
                     <div className='single-flag_neighbors'>
                         <p className="single-flag_category">Border Countries: </p>
                         <div className='neighbors-container'>
-                            {(neighbors.length === 0 || neighbors.message) ? null :
+                            {(neighbors.length === 0 || neighbors.message) ?
+                            <p className='no-neighbors-text'>No neighboring countries</p> :
                             neighbors.map((el) => {
                                 return (
                                     <Link to={`/countries/${el.cca3}`} key={`${country.cca3}-neighbor-${el.cca3}`}>
-                                        <div className={`neighbors-link ${modeClass}`}>
+                                        <div className={`neighbors-link ${modeClass} ${hoverClass}`}>
                                             {`${el.name.common}`}
                                         </div>
                                     </Link>

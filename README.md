@@ -31,6 +31,7 @@ Users can:
 - Further split out container components from presentational components
 - Add additional filtering options (sub-region)
 - Add additional search options (capital, language, country code, etc.)
+- Add search functionality to the single country view
 - Store last search parameters used on main page so when back button is clicked the same results display
 - Store light mode / dark mode choice so it will be preserved upon refresh / redirect
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
