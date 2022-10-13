@@ -17,7 +17,7 @@ function FilterSelector({clickHandler, lightMode}) {
     return (
         <div className={`filter-selector-container ${modeClass}`}>
             <button onClick={dropDownClickHandler} className="region-selector">
-                Fliter by region
+                Filter by region
                 <ion-icon name="chevron-down-outline"></ion-icon>
             </button>
             {!showDropDown ? null :
