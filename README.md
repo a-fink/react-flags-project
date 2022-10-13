@@ -20,7 +20,7 @@ Users can:
 - Create React App - library used for project setup with a customized template
 - HTML5 - as JSX within React
 - CSS - styling and media breakpoints for responsive design
-- JavaScript / ES6 - importing/exporting modules, fetching from API, conditional logic and mapping within React elements
+- JavaScript / ES6 - importing / exporting, fetching from API, conditional logic / mapping within React elements
 - Google Fonts - custom fonts library
 - Ionicons - open-source icon library
 - Postman - testing API endpoints and exploring response data structures
@@ -32,7 +32,7 @@ Users can:
 - Add additional filtering options (sub-region)
 - Add additional search options (capital, language, country code, etc.)
 - Store last search parameters used on main page so when back button is clicked the same results display
-- Determine how to pass light mode / dark mode choice when redirecting to the error page or upon page refresh
+- Store light mode / dark mode choice so it will be preserved upon refresh / redirect
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
 
 ### Acknowledgements
