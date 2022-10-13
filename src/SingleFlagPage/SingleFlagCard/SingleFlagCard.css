@@ -1,7 +1,6 @@
 .single-flag-card{
-    width: 80vw;
-    height: 55vh;
-    margin-top: 50px;
+    width: 85vw;
+    height: fit-content;
     justify-self: center;
     align-self: center;
 
@@ -22,18 +21,18 @@
 .single-flag_image{
     width: 100%;
     height: auto;
-    box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
+    max-height: 100%;
 }
 
 .single-flag_info-section{
-    width: 45%;
+    width: 50%;
     height: 100%;
-    padding: 40px 0;
+    padding: 30px 20px;
 
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    align-items: flex-start;
+    row-gap: 30px;
 
     font-size: 16px;
 }
@@ -45,11 +44,14 @@
 
 .single-flag_info{
     width: 100%;
-    height: 33%;
+    max-height: 140px;
+
     display: flex;
-    flex-direction: column;
     flex-wrap: wrap;
-    row-gap: 1vh;
+    flex-direction: column;
+    justify-content: flex-start;
+    row-gap: 10px;
+    column-gap: 20px;
 }
 
 .single-flag_category{
@@ -83,4 +85,43 @@
     font-size: 14px;
     background-color: hsl(0, 0%, 100%);
     box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.12);
+}
+
+@media screen and (max-width: 1200px) {
+    .single-flag_info{
+        max-height: 180px;
+    }
+}
+
+@media screen and (max-width: 1075px) {
+    .single-flag_info{
+        max-height: 200px;
+    }
+}
+
+@media screen and (max-width: 1000px) {
+    .single-flag-card{
+        width: 70%;
+        height: 100%;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+
+    .single-flag_info-section{
+        width: 100%;
+        padding: 30px 0;
+    }
+
+    .single-flag_image-positioner{
+        width: 100%;
+    }
+
+    .single-flag_image{
+        max-height: none;
+    }
+
+    .single-flag_info{
+        max-height: none;
+    }
 }

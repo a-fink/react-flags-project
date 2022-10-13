@@ -57,12 +57,6 @@ function SingleFlagCard({country}){
                     <h2 className='single-flag_heading'>{country.name.common}</h2>
                     <div className='single-flag_info'>
                         <p className="single-flag_category">
-                            Population:
-                            <span className="single-flag_data">
-                                {` ${country.population.toLocaleString('en-US')}`}
-                            </span>
-                        </p>
-                        <p className="single-flag_category">
                             Region:
                             <span className="single-flag_data">
                                 {` ${country.region}`}
@@ -78,6 +72,12 @@ function SingleFlagCard({country}){
                             Capital:
                             <span className="single-flag_data">
                                 {` ${country.capital}`}
+                            </span>
+                        </p>
+                        <p className="single-flag_category">
+                            Population:
+                            <span className="single-flag_data">
+                                {` ${country.population.toLocaleString('en-US')}`}
                             </span>
                         </p>
                         <p className="single-flag_category">
