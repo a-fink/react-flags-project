@@ -1,8 +1,6 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
-
-
 /* overall react component styling */
 #root{
     box-sizing: border-box;
@@ -16,7 +14,6 @@
     align-items: center;
 
     font-family: 'Nunito Sans', sans-serif;
-    background-color: hsl(0, 0%, 98%);
 }
 
 .app{
@@ -34,12 +31,24 @@
     font-size: 14px;
 }
 
-/* light mode inheritable properties */
+/* light mode inheritable properties - background color & text color */
 .light{
+    background-color: hsl(0, 0%, 98%);
     color: hsl(200, 15%, 8%);
 }
 
-/* dark mode inheritable properties */
+/* light mode element background color */
+.light-element{
+    background-color: hsl(0, 0%, 100%);
+}
+
+/* dark mode inheritable properties - background color & text color*/
 .dark{
+    background-color: hsl(207, 26%, 17%);
     color: hsl(0, 0%, 100%);
+}
+
+/* dark mode element background color */
+.dark-element{
+    background-color: hsl(209, 23%, 22%);
 }

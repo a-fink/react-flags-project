@@ -7,7 +7,7 @@
     justify-content: center;
     align-items: center;
 
-    color: hsl(200, 15%, 8%);
+    border-radius: 6px;
 }
 
 .region-selector{
@@ -19,7 +19,6 @@
     align-items: center;
 
     border-radius: 6px;
-    background-color: hsl(0, 0%, 100%);
     box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
 }
 
@@ -36,7 +35,6 @@
     row-gap: 5px;
 
     border-radius: 6px;
-    background-color: hsl(0, 0%, 100%);
     box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
 }
 

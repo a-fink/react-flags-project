@@ -6,8 +6,6 @@
 
     display: flex;
     flex-direction: column;
-
-    background-color: hsl(0, 0%, 98%);
 }
 
 .search-container{

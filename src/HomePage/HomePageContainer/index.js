@@ -4,9 +4,9 @@ import FilterSelector from '../FilterSelector';
 import AllFlagsContainer from '../AllFlagsContainer';
 import { useState } from 'react';
 
-// inputs - none
+// inputs - variable for which color mode page is in to pass on to child elements
 // outputs - component that renders all the home page elements
-function HomePageContainer(){
+function HomePageContainer({lightMode}){
     // useState to set a search string, starts out as 'all', and a search display value for the search bar, starts as ''
     // search string will get updated by search bar or filter selector
     // then passed to all flags container to search / render the results
@@ -44,10 +44,10 @@ function HomePageContainer(){
     return (
         <div className="home-page-container">
             <div className="search-container">
-                <SearchBar searchDisplay={searchDisplay} changeHandler={changeHandler}/>
-                <FilterSelector clickHandler={clickHandler}/>
+                <SearchBar searchDisplay={searchDisplay} changeHandler={changeHandler} lightMode={lightMode}/>
+                <FilterSelector clickHandler={clickHandler} lightMode={lightMode}/>
             </div>
-            <AllFlagsContainer searchString={searchString}/>
+            <AllFlagsContainer searchString={searchString} lightMode={lightMode}/>
         </div>
     );
 }

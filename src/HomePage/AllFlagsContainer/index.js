@@ -3,10 +3,13 @@ import './AllFlagsContainer.css';
 import {Redirect} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
-// input - search string from parent - either a region from filter, or a name from search bar, or all
+// input - search string from parent, and variable for which color mode page is in
 // returns - jsx component of a div containing small flag containers for all countries found by the search
 // redirects to the error page if an error occurs, displays a note that no results were found if search comes up empty
-function AllFlagsContainer({searchString}){
+function AllFlagsContainer({searchString, lightMode}){
+    // set color mode variable based on lightMode
+    const modeClass = (lightMode ? 'light-element' : 'dark-element');
+
     // useState to get values for whether data has loaded, the countries array, and whether there's an error
     // starting states are no errors, loaded is false, and countries is an empty array
     const [error, setError] = useState(null);
@@ -53,7 +56,7 @@ function AllFlagsContainer({searchString}){
     else if(!isLoaded){
         return (
             <div className="all-flags_loading">
-                <p className="all-flags_message">Loading...</p>
+                <p className={`all-flags_message ${modeClass}`}>Loading...</p>
             </div>
         );
     }
@@ -62,7 +65,7 @@ function AllFlagsContainer({searchString}){
     else if(isLoaded && countries.message){
         return (
             <div className="all-flags_no-results">
-                <p className="all-flags_message">Your search returned no matching countries, please try again...</p>
+                <p className={`all-flags_message ${modeClass}`}>Your search returned no matching countries, please try again...</p>
             </div>
         );
     }
@@ -81,6 +84,7 @@ function AllFlagsContainer({searchString}){
                                 flag={country.flags.png}
                                 code={country.cca3}
                                 key={country.cca3}
+                                lightMode={lightMode}
                             />
                         );
                     })

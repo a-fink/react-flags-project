@@ -1,14 +1,16 @@
 import './SmallFlagContainer.css'
 import {Link} from 'react-router-dom';
 
-// inputs - props from parent including name, population, region, capital, flag url, and country code
+// inputs - props from parent including name, population, region, capital, flag url, country code, and which color mode page is in
 // return - jsx element that displays information & links to info page for single country
 // toLocaleString used below to add commas to the population numbers
-function OneFlagContainer({name, population, region, capital, flag, code}){
+function OneFlagContainer({name, population, region, capital, flag, code, lightMode}){
+    // set navClass variable based on lightMode
+    const modeClass = (lightMode ? 'light-element' : 'dark-element');
 
     return (
         <Link to={`/countries/${code}`}>
-            <div className="country-card-outer">
+            <div className={`country-card-outer ${modeClass}`}>
                 <img src={flag} alt={`Flag of ${name}`} className="country-card_image" />
                 <div className="country-card_info">
                     <h4 className="country-card_heading">{name}</h4>

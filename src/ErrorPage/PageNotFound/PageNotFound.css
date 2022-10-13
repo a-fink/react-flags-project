@@ -7,8 +7,6 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
-    background-color: hsl(0, 0%, 98%);
 }
 
 .not-found-card{
@@ -23,7 +21,6 @@
     row-gap: 40px;
 
     border-radius: 6px;
-    background-color: hsl(0, 0%, 100%);
     box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
 
     font-size: 18px;

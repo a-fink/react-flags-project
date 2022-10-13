@@ -1,13 +1,14 @@
 import './SearchBar.css';
 
-// inputs - event handler and search string from parent
+// inputs - event handler, search string, and variable for which color mode page is in
 // return - jsx element rendering search bar with search string
-function SearchBar({changeHandler, searchDisplay}) {
-    // if the search string is the default value of all then we want search bar text to ask for input
-    // if the search string is something else then we want to display that
+function SearchBar({changeHandler, searchDisplay, lightMode}) {
+    // set class name variable based on lightMode
+    const modeClass = (lightMode ? 'light-element' : 'dark-element');
+    const colorClass = (lightMode ? 'gray-text' : 'white-text');
 
     return (
-        <div className="search-bar-container">
+        <div className={`search-bar-container ${modeClass} ${colorClass}`}>
             <div className="search-icon">
                 <ion-icon name="search-outline"></ion-icon>
             </div>

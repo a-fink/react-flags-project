@@ -7,9 +7,7 @@
     align-items: center;
 
     border-radius: 6px;
-    background-color: hsl(0, 0%, 100%);
     box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
-    color: hsl(0, 0%, 52%)
 }
 
 .search-bar{
@@ -20,4 +18,14 @@
 .search-icon{
     margin: 5px 0 0 15px;
     width: 14px;
+}
+
+/* will have gray text for input field in light mode*/
+.gray-text{
+    color: hsl(0, 0%, 52%);
+}
+
+/* will have white text for input field in dark mode */
+.white-text{
+    color: hsl(0, 0%, 100%);
 }

@@ -3,27 +3,40 @@ import HomePageContainer from './HomePage/HomePageContainer';
 import {Route, Switch} from 'react-router-dom';
 import PageNotFound from './ErrorPage/PageNotFound';
 import SingleFlagContainer from './SingleFlagPage/SingleFlagContainer';
+import { useState } from 'react';
 
-
-// always render the navigation bar
-// render the rest of the page according to the routes - all flags on home page, flag details when flag is chosen, 404 page when nothing matches
+// inputs - none
+// return - div containing all other application elements
+// will always render the navigation bar
+// will render the rest of the page according to the routes - all flags on home page, flag details when flag is chosen, 404 page when nothing matches
 function App() {
-  // ** TODO **
-  // set up light/dark mode switching, for now going to give the mounted app div the light mode
-  const colorMode = 'light';
+  // useState to get value of whether we're in light mode (true) or dark mode (false)
+  // default state is true
+  const [lightMode, setLightMode] = useState(true);
 
+  // click handler that will be called by the dark mode button to set the light mode/dark mode state
+  // state switches each time it is clicked
+  const modeClickHandler = () => {
+    setLightMode((prevMode) => !prevMode);
+  }
+
+  // set the mode classname for the outer div based on lightMode's value
+  const modeClass = (lightMode ? 'light' : 'dark');
+
+  // pass the lightMode variable to all child elements so CSS can be set down the tree
+  // mass the click handler function to the nav bar
   return (
-    <div className={`app ${colorMode}`}>
-        <NavBar />
+    <div className={`app ${modeClass}`}>
+        <NavBar lightMode={lightMode} modeClickHandler={modeClickHandler}/>
         <Switch>
           <Route exact path='/'>
-            <HomePageContainer />
+            <HomePageContainer lightMode={lightMode} />
           </Route>
           <Route path='/countries/:code'>
-            <SingleFlagContainer />
+            <SingleFlagContainer lightMode={lightMode} />
           </Route>
           <Route>
-            <PageNotFound />
+            <PageNotFound lightMode={lightMode}/>
           </Route>
         </Switch>
     </div>

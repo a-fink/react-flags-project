@@ -2,9 +2,12 @@ import { useState, useEffect } from 'react';
 import { Redirect, Link } from 'react-router-dom';
 import './SingleFlagCard.css';
 
-// input - a country found from the API by the parent component
+// input - a country found from the API by the parent component, and variable for which color mode page is in
 // output - a JSX element rendering the country flag and information
-function SingleFlagCard({country}){
+function SingleFlagCard({country, lightMode}){
+    // set color mode variable based on lightMode
+    const modeClass = (lightMode ? 'light-element' : 'dark-element');
+
     // useState to get the county's neighbors, and whether there was an error
     // starting states are no errors, and neighbors is an empty array
     const [error, setError] = useState(null);
@@ -25,19 +28,34 @@ function SingleFlagCard({country}){
         }
     }, [country.borders]);
 
-    // get a string of the currencies from the country object
-    let currencyArray = [];
-    for (const [key, value] of Object.entries(country.currencies)){
-        currencyArray.push(value.name);
-    }
-    const currencies = currencyArray.join(', ');
+    // get a string of the currencies & languages from the country object
+    let currencies, languages;
 
-    // get a string of the languages from the country object
-    let languagesArray = [];
-    for(const [key, value] of Object.entries(country.languages)){
-        languagesArray.push(value);
+    // some countries have no currency, when that happens set to empty string
+    if(!country.currencies){
+       currencies = '';
     }
-    const languages = languagesArray.join(', ');
+    // country.currencies returns an object, push all values to array then join to string
+    else{
+        let currencyArray = [];
+        for (const [key, value] of Object.entries(country.currencies)){
+            currencyArray.push(value.name);
+        }
+        currencies = currencyArray.join(', ');
+    }
+
+    // some countries have no language, when that happens set to empty string
+    if(!country.languages){
+        languages = '';
+    }
+    // country.languages is an object, push all values to array then join to string
+    else{
+        let languagesArray = [];
+        for(const [key, value] of Object.entries(country.languages)){
+            languagesArray.push(value);
+        }
+        languages = languagesArray.join(', ');
+    }
 
     // if an error happened in the above fetch redirect to the error page
     if(error){
@@ -106,7 +124,7 @@ function SingleFlagCard({country}){
                             neighbors.map((el) => {
                                 return (
                                     <Link to={`/countries/${el.cca3}`} key={`${country.cca3}-neighbor-${el.cca3}`}>
-                                        <div className='neighbors-link'>
+                                        <div className={`neighbors-link ${modeClass}`}>
                                             {`${el.name.common}`}
                                         </div>
                                     </Link>

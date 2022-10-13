@@ -4,7 +4,10 @@ import './SingleFlagContainer.css';
 import { useParams, Redirect } from 'react-router-dom';
 import { useState, useEffect} from 'react';
 
-function SingleFlagContainer() {
+// inputs: variable for which color mode page is in to pass on to child elements
+// returns: jsx elements for the single country details page
+function SingleFlagContainer({lightMode}) {
+    // get the country code from the route parameters
     const {code} = useParams();
 
     // useState to get values for whether data has loaded, the country, and whether there was an error
@@ -44,7 +47,7 @@ function SingleFlagContainer() {
         return (
             <div className="single-flag-container">
                 <div className="back-button-positioner">
-                    <BackButton />
+                    <BackButton lightMode={lightMode}/>
                 </div>
                 <div className="single-flag_loading">
                     <p className="single-flag_message">Loading...</p>
@@ -57,9 +60,9 @@ function SingleFlagContainer() {
         return (
             <div className="single-flag-container">
                 <div className="back-button-positioner">
-                    <BackButton />
+                    <BackButton lightMode={lightMode}/>
                 </div>
-                <SingleFlagCard country={country} />
+                <SingleFlagCard country={country} lightMode={lightMode} />
             </div>
         );
     }
