@@ -21,9 +21,9 @@
 }
 
 .all-flags_message{
-    width: 20%;
-    height: 30%;
-    margin-top: 5em;
+    width: fit-content;
+    height: fit-content;
+    margin-top: 6em;
     padding: 4em;
 
     display: flex;

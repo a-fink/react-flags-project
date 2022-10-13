@@ -12,15 +12,15 @@
 }
 
 .not-found-card{
-    width: 30vw;
-    height: 30vh;
-    padding: 6em;
+    width: fit-content;
+    height: fit-content;
+    padding: 2em;
 
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    row-gap: 3vh;
+    row-gap: 40px;
 
     border-radius: 6px;
     background-color: hsl(0, 0%, 100%);
