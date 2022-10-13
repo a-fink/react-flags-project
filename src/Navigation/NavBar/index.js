@@ -9,7 +9,7 @@ function NavBar({lightMode, modeClickHandler}){
 
     return (
         <nav className={modeClass}>
-            <h1>Where in the world?</h1>
+            <h1>Flags of the World</h1>
             <ModeButton lightMode={lightMode} modeClickHandler={modeClickHandler}/>
         </nav>
     );
