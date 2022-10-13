@@ -1,7 +1,7 @@
 import BackButton from "../../BackButton";
 import SingleFlagCard from "../SingleFlagCard";
 import './SingleFlagContainer.css';
-import { useParams, Redirect } from 'react-router-dom';
+import { useParams, Redirect, useHistory } from 'react-router-dom';
 import { useState, useEffect} from 'react';
 
 // inputs: variable for which color mode page is in to pass on to child elements
@@ -9,6 +9,14 @@ import { useState, useEffect} from 'react';
 function SingleFlagContainer({lightMode}) {
     // get the country code from the route parameters
     const {code} = useParams();
+
+    // useHistory and useEffect to add this page to the browser history for back/refresh after render
+    // only do on first render
+    const history = useHistory();
+    useEffect(() => {
+        history.push(`/countries/${code}`);
+    }, [code, history]);
+
 
     // useState to get values for whether data has loaded, the country, and whether there was an error
     // starting states are no errors, loaded is false, and countries is an empty object
