@@ -1,9 +1,9 @@
-import BackButton from '../../BackButton';
-import './PageNotFound.css';
+import BackButton from '../BackButton';
+import './ErrorPage.css';
 
 // inputs: variable for which color mode page is in
 // returns: jsx component for the error page
-function PageNotFound({lightMode}){
+function ErrorPage({lightMode}){
     // set the mode classname variables based on the value of lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
 
@@ -18,4 +18,4 @@ function PageNotFound({lightMode}){
     )
 }
 
-export default PageNotFound;
+export default ErrorPage;

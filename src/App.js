@@ -1,10 +1,11 @@
 import NavBar from './Navigation/NavBar';
 import HomePageContainer from './HomePage/HomePageContainer';
-import PageNotFound from './ErrorPage/PageNotFound';
 import SingleFlagContainer from './SingleFlagPage/SingleFlagContainer';
+import ErrorPage from './ErrorPage';
 import Footer from './Footer';
 import {Route, Switch} from 'react-router-dom';
 import { useState } from 'react';
+
 
 
 // inputs - none
@@ -38,7 +39,7 @@ function App() {
             <SingleFlagContainer lightMode={lightMode} />
           </Route>
           <Route>
-            <PageNotFound lightMode={lightMode}/>
+            <ErrorPage lightMode={lightMode}/>
           </Route>
         </Switch>
         <Footer lightMode={lightMode} />
