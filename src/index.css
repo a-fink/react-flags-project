@@ -1,6 +1,8 @@
 @import url('./reset.css');
 @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:wght@300;600;800&display=swap');
 
+
+
 /* overall react component styling */
 #root{
     box-sizing: border-box;

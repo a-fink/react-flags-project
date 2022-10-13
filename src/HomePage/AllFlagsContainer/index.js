@@ -27,6 +27,8 @@ function AllFlagsContainer({searchString}){
             .then((result) => {
                 setIsLoaded(true);
 
+                console.log(result)
+
                 // use a custom built in sort to put the results in alphabetical order
                 result.sort((a, b) => {
                     if(a.name.common < b.name.common) return -1;
