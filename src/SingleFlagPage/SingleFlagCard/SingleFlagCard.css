@@ -1,5 +1,4 @@
 .single-flag-card{
-    margin-top: 3em;
     width: 85vw;
     height: fit-content;
     justify-self: center;
@@ -33,7 +32,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    row-gap: 4vw;
+    row-gap: 30px;
 
     font-size: 16px;
 }
@@ -146,5 +145,17 @@
         display: flex;
         flex-direction: column;
         row-gap: 10px;
+    }
+}
+
+@media screen and (max-width: 550px) {
+    .neighbors-container{
+        flex-direction: column;
+        row-gap: 15px;
+    }
+
+    .neighbors-link{
+        display: flex;
+        justify-content: center;
     }
 }
