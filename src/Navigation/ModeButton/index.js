@@ -5,7 +5,7 @@ import './ModeButton.css';
 function ModeButton({lightMode, modeClickHandler}) {
     // set the iconName and modeClass name based on the value of the lightMode prop
     const iconName = (lightMode ? "moon-outline" : "moon");
-    const modeClass = (lightMode ? 'light-element' : 'dark-element');
+    const modeClass = (lightMode ? 'light-element' : 'dark-button');
 
     return (
         <button className={`mode-button ${modeClass}`} onClick={modeClickHandler}>

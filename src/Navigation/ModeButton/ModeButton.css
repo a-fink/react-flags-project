@@ -5,12 +5,18 @@
     align-items: center;
     justify-content: space-between;
 
-    box-shadow: 0 0 1px 1px hsla(200, 15%, 8%, 0.1);
+    box-shadow: 0 0 3px 2px hsla(200, 15%, 8%, 0.1);
     border-radius: 6px;
 }
 
 .mode-text{
     margin: 0 0 0 10px;
+}
+
+/* because of nav background, button gets lost in dark mode,
+giving it its own styling to make it stand out more in dark mode */
+.dark-button{
+    background-color: hsl(207, 26%, 18%);
 }
 
 @media screen and (max-width: 550px) {
