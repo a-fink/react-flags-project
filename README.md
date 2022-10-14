@@ -1,4 +1,4 @@
-# Flags of the World Project
+# Flags of the World
 
 [Live Site](https://flagsoftheworld-afink.netlify.app)
 
