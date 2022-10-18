@@ -27,7 +27,7 @@ Users can:
 - Git / GitHub - version control
 - Netlify - hosting with continuous deployment from GitHub
 
-## Possible Future Improvements
+## Planned Future Improvements
 - Further split out container components from presentational components
 - Add additional filtering options (sub-region)
 - Make filtering menu hide when clicking elsewhere on the page, and have filter options indicate if they are active
