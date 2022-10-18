@@ -35,6 +35,7 @@ Users can:
 - Add search functionality to the single country view
 - Store last search parameters used on main page so when back button is clicked the same results display
 - Store light mode / dark mode choice so it will be preserved upon refresh / redirect
+- Test page accessability and add additional features for a more accessible design
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
 
 ### Acknowledgements
