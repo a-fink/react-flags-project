@@ -36,6 +36,7 @@ Users can:
 - Store last search parameters used on main page so when back button is clicked the same results display
 - Store light mode / dark mode choice so it will be preserved upon refresh / redirect
 - Test page accessibility and add additional features for a more accessible design
+- Add additional styling to indicate that search results on the home page are clickable on mobile
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
 
 ### Acknowledgements
