@@ -33,6 +33,7 @@ Users can:
 - Make filtering menu hide when clicking elsewhere on the page, and have filter options indicate if they are active
 - Add additional search options (capital, language, country code, etc.)
 - Add search functionality to the single country view
+- Add loading placeholder for border countries in single country view
 - Store last search parameters used on main page so when back button is clicked the same results display
 - Store light mode / dark mode choice so it will be preserved upon refresh / redirect
 - Test page accessibility and add additional features for a more accessible design
