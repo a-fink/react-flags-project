@@ -10,7 +10,7 @@ import { useState } from 'react';
 
 // inputs - none
 // return - div containing all other application elements
-// will always render the navigation bar
+// will always render the navigation bar and footer bar
 // will render the rest of the page according to the routes - all flags on home page, flag details when flag is chosen, 404 page when nothing matches
 function App() {
   // useState to get value of whether we're in light mode (true) or dark mode (false)
@@ -27,7 +27,7 @@ function App() {
   const modeClass = (lightMode ? 'light' : 'dark');
 
   // pass the lightMode variable to all child elements so CSS can be set down the tree
-  // mass the click handler function to the nav bar
+  // pass the click handler function to the nav bar
   return (
     <div className={`app ${modeClass}`}>
         <NavBar lightMode={lightMode} modeClickHandler={modeClickHandler}/>
