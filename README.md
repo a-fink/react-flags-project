@@ -2,6 +2,8 @@
 
 [Live Site](https://flagsoftheworld-afink.netlify.app)
 
+![Light and dark mode front page image](/readme-images/combined-image.png "Project Image")
+
 ## Goals
 - To cement my knowledge of React including functional components and hooks
 - To explore the use of React Router for front end routing and single-page functionality
