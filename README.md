@@ -1,8 +1,10 @@
 # Flags of the World
 
-[Live Site](https://flagsoftheworld-afink.netlify.app)
-
 ![Light and dark mode front page image](/readme-images/combined-image.png "Project Image")
+
+## Live Site
+
+[Live Site](https://flagsoftheworld-afink.netlify.app)
 
 ## Goals
 - To cement my knowledge of React including functional components and hooks
