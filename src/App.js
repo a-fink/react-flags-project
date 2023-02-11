@@ -13,11 +13,18 @@ import { useState } from 'react';
 // always renders navigation and footer, rest of components rendered based on route in url
 function App() {
   // state of light mode / dark mode, will be passed to all components to set CSS values throughout app
-  const [lightMode, setLightMode] = useState(true);
+  // attempts to load from session storage, defaults to true if session storage empty
+  const [lightMode, setLightMode] = useState(() => {
+    const storedLightMode = JSON.parse(sessionStorage.getItem('lightMode'));
+    return storedLightMode !== null ? storedLightMode : true;
+  });
 
   // click handler to pass to nav bar for light mode / dark mode component
+  // also stores light mode / dark mode choice in session storage
   const modeClickHandler = () => {
+    const nextMode = !lightMode;
     setLightMode((prevMode) => !prevMode);
+    sessionStorage.setItem('lightMode', JSON.stringify(nextMode));
   }
 
   const modeClass = (lightMode ? 'light' : 'dark');
