@@ -31,6 +31,9 @@ Users can:
 - Git / GitHub - version control
 - Netlify - hosting with continuous deployment from GitHub
 
+## Recently Completed Improvements
+- Light mode / dark mode choice is now stored in session storage so it persists through page refresh / redirect
+
 ## Planned Future Improvements
 - Further split out container components from presentational components
 - Add additional filtering options (sub-region)
@@ -39,7 +42,6 @@ Users can:
 - Add search functionality to the single country view
 - Add loading placeholder for border countries in single country view
 - Store last search parameters used on main page so when back button is clicked the same results display
-- Store light mode / dark mode choice so it will be preserved upon refresh / redirect
 - Test page accessibility and add additional features for a more accessible design
 - Add additional styling to indicate that search results on the home page are clickable on mobile
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
