@@ -3,35 +3,25 @@ import './AllFlagsContainer.css';
 import {Redirect} from 'react-router-dom';
 import {useState, useEffect} from 'react';
 
-// input - search string from parent, and variable for which color mode page is in
-// returns - jsx component of a div containing small flag containers for all countries found by the search
-// redirects to the error page if an error occurs, displays a note that no results were found if search comes up empty
+// input - search string from parent, variable for which color mode page is in
+// returns - jsx component - either a div containing small flag containers, a loading message, or a redirect to the error page
 function AllFlagsContainer({searchString, lightMode}){
-    // set color mode variable based on lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
 
-    // useState to get values for whether data has loaded, the countries array, and whether there's an error
-    // starting states are no errors, loaded is false, and countries is an empty array
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
     const [countries, setCountries] = useState([]);
 
-    // useEffect to search based on the search string
-    // this function component will get re-run/re-rendered each time the search string changes in it's parent component
-    // only want this useEffect search to happen the first time or anytime searchString changes
+    // useEffect to fetch from API based on search string - runs when component mounts and anytime search string changes
     useEffect(() => {
-
-        // reset loaded to false so the loading element will show again when a new search is happening
         setIsLoaded(false);
 
-        // fetch from the api and set properties based on the result
         fetch(`https://restcountries.com/v3.1/${searchString}`)
             .then(res => res.json())
             .then((result) => {
                 setIsLoaded(true);
 
-                // if result has a message then no array was found, so only sort when there's no message
-                // use a custom built in sort to put the results in alphabetical order
+                // if result from API has a message property then no data was found, otherwise sort result countries in alphabetical order
                 if(!result.message){
                     result.sort((a, b) => {
                         if(a.name.common < b.name.common) return -1;
@@ -52,6 +42,7 @@ function AllFlagsContainer({searchString, lightMode}){
     if(error){
         return <Redirect to='/error' />
     }
+
     // if isLoaded is false display a loading message
     else if(!isLoaded){
         return (
@@ -60,8 +51,8 @@ function AllFlagsContainer({searchString, lightMode}){
             </div>
         );
     }
-    // when a request fails to find results the response object will have a message key
-    // if data has loaded and a message key exists then no results were found - show message to that effect
+
+    // if data has loaded and a message key exists then no results were found - show no results message to user
     else if(isLoaded && countries.message){
         return (
             <div className="all-flags_no-results">
@@ -69,29 +60,28 @@ function AllFlagsContainer({searchString, lightMode}){
             </div>
         );
     }
-    // finally if data found map all items in the countries array to a small flag container component
-    else{
-        return (
-            <div className="all-flags-container">
-                {
-                    countries.map(country => {
-                        return (
-                            <SmallFlagContainer
-                                name={country.name.common}
-                                population={country.population}
-                                region={country.region}
-                                capital={country.capital}
-                                flag={country.flags.png}
-                                code={country.cca3}
-                                key={country.cca3}
-                                lightMode={lightMode}
-                            />
-                        );
-                    })
-                }
-            </div>
-        );
-    }
+
+    // if data was found found map all items in the countries array to small flag container components
+    return (
+        <div className="all-flags-container">
+            {
+                countries.map(country => {
+                    return (
+                        <SmallFlagContainer
+                            name={country.name.common}
+                            population={country.population}
+                            region={country.region}
+                            capital={country.capital}
+                            flag={country.flags.png}
+                            code={country.cca3}
+                            key={country.cca3}
+                            lightMode={lightMode}
+                        />
+                    );
+                })
+            }
+        </div>
+    );
 }
 
 export default AllFlagsContainer;

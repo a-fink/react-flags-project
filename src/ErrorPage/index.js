@@ -4,7 +4,6 @@ import './ErrorPage.css';
 // inputs: variable for which color mode page is in
 // returns: jsx component for the error page
 function ErrorPage({lightMode}){
-    // set the mode classname variables based on the value of lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
 
     return(

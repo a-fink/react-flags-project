@@ -3,7 +3,6 @@ import './Footer.css'
 // inputs: variable for which color mode page is in
 // returns: jsx component for the footer bar
 function Footer({lightMode}) {
-    // set color mode variable based on lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
     const borderClass = (lightMode ? 'border-left-light' : 'border-left-dark');
     const borderSmallClass = (lightMode ? 'border-right-light' : 'border-right-dark');
