@@ -14,6 +14,7 @@ function HomePageContainer({lightMode}){
     // click handler to be passed to filter drop down menu
     const clickHandler = (event) => {
         setSearchString(event.target.id);
+        setSearchDisplay('');
     }
 
     // change handler to be passed to search bar - set input text and API search value
