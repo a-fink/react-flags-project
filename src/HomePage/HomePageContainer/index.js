@@ -7,38 +7,27 @@ import { useState } from 'react';
 // inputs - variable for which color mode page is in to pass on to child elements
 // outputs - component that renders all the home page elements
 function HomePageContainer({lightMode}){
-    // useState to set a search string, starts out as 'all', and a search display value for the search bar, starts as ''
-    // search string will get updated by search bar or filter selector
-    // then passed to all flags container to search / render the results
+    // searchString controls search parameter sent to API, searchDisplay controls form inputs from user
     const [searchString, setSearchString] = useState('all');
     const [searchDisplay, setSearchDisplay] = useState('');
 
-    // click handler that will be passed to the filter selector which renders the drop down menu
-    // the correct search string we need is stored as the id of each item in the drop down menu
-    // when clicking an item in the dropdown menu it will update our search string
-    // this will in turn re-render the all flags container with the new search
+    // click handler to be passed to filter drop down menu
     const clickHandler = (event) => {
         setSearchString(event.target.id);
     }
 
-    // change handler that will be passed to the search bar
-    // when the value of the search bar changes we want to update the search string
-    // this will update what displays in the search bar and re-render the all flags container with the new search
+    // change handler to be passed to search bar - set input text and API search value
     const changeHandler = (event) => {
-
-        // set the search display to the new value of the search bar
         setSearchDisplay(event.target.value);
 
-        // if the search bar's value has gone back to '' we want to search for all
         if(event.target.value === ''){
             setSearchString('all');
         }
-        // otherwise set search string to the correct string to look for a country by name
+
         else{
             setSearchString(`name/${event.target.value}`);
         }
     }
-
 
     return (
         <div className="home-page-container">

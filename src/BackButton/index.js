@@ -4,7 +4,6 @@ import {Link} from 'react-router-dom';
 // inputs: variable for which color mode page is in
 // returns: jsx component for the back button
 function BackButton({lightMode}){
-    // set the mode classname variables based on the value of lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
     const hoverClass = (lightMode ? 'light-hover' : 'dark-hover');
 

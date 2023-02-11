@@ -1,13 +1,12 @@
 import './FilterSelector.css';
 import {useState} from 'react';
 
-// inputs - event handler from parent and variable for which color mode page is in
+// inputs - event handler from parent, variable for which color mode page is in
 // return - component that renders top level button, then depending on state the sub-options with the event handler
 function FilterSelector({clickHandler, lightMode}) {
-    // set class name variable based on lightMode
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
 
-    // have state for whether the drop down portion should be visible - starts off
+    // state for whether the drop down portion should be visible - starts off
     const [showDropDown, setShowDropDown] = useState(false);
 
     const dropDownClickHandler = () => {
