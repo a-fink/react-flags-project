@@ -10,33 +10,57 @@ function AllFlagsContainer({searchString, lightMode}){
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [countries, setCountries] = useState([]);
+    const [countries, setCountries] = useState(JSON.parse(sessionStorage.getItem('countryData')) || []);
 
-    // useEffect to fetch from API based on search string - runs when component mounts and anytime search string changes
+    const ONE_DAY_IN_MILLISECONDS = 86400000;
+
+    // data is out of date if lastUpdated value in session storage exists and is more than one day ago (date stored/retrieved in miliseconds)
+    const dataOutOfDate = sessionStorage.getItem('lastUpdated') === null ? false : new Date().getTime() - parseInt(sessionStorage.getItem('lastUpdated')) > ONE_DAY_IN_MILLISECONDS;
+
+    // fetch all country data from API and store it in session storage - timeout will force a refresh of data once per day
     useEffect(() => {
-        setIsLoaded(false);
+        if(countries.length === 0 || dataOutOfDate){
+            setIsLoaded(false);
 
-        fetch(`https://restcountries.com/v3.1/${searchString}`)
-            .then(res => res.json())
-            .then((result) => {
-                setIsLoaded(true);
+            fetch(`https://restcountries.com/v3.1/all`)
+                .then(res => res.json())
+                .then((result) => {
+                    setIsLoaded(true);
 
-                // if result from API has a message property then no data was found, otherwise sort result countries in alphabetical order
-                if(!result.message){
-                    result.sort((a, b) => {
-                        if(a.name.common < b.name.common) return -1;
-                        else if(a.name.common > b.name.common) return 1;
-                        else return 0;
-                    });
-                }
+                    // if result from API has a message property then no data was found, otherwise sort result countries in alphabetical order
+                    // if(!result.message){
+                    //     result.sort((a, b) => {
+                    //         if(a.name.common < b.name.common) return -1;
+                    //         else if(a.name.common > b.name.common) return 1;
+                    //         else return 0;
+                    //     });
+                    // }
 
-                setCountries(result);
-            })
-            .catch((err) => {
-                setIsLoaded(true);
-                setError(err);
-            });
-    }, [searchString]);
+                    sessionStorage.setItem('countryData', JSON.stringify(result));
+                    sessionStorage.setItem('lastUpdated', JSON.stringify(new Date().getTime()));
+                    setCountries(result);
+
+                    const timeoutId = setTimeout(() => {
+                        setCountries([]);
+                        sessionStorage.removeItem('countryData');
+                        sessionStorage.removeItem('lastUpdated');
+                    }, ONE_DAY_IN_MILLISECONDS);
+                    return () => {
+                        clearTimeout(timeoutId);
+                    };
+                })
+                .catch((err) => {
+                    setIsLoaded(true);
+                    setError(err);
+                    setCountries([]);
+                    sessionStorage.removeItem('countryData');
+                    sessionStorage.removeItem('lastUpdated');
+                });
+        }
+        else{
+            setIsLoaded(true);
+        }
+    }, [countries, dataOutOfDate]);
 
     // if an error happened redirect to the error page
     if(error){
