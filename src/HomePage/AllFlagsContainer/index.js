@@ -14,10 +14,10 @@ function AllFlagsContainer({searchString, lightMode}){
 
     const ONE_DAY_IN_MILLISECONDS = 86400000;
 
-    // data is out of date if lastUpdated value in session storage exists and is more than one day ago (date stored/retrieved in miliseconds)
+    // data is out of date if lastUpdated value exists in session storage and is more than one day ago (date stored/retrieved in miliseconds)
     const dataOutOfDate = sessionStorage.getItem('lastUpdated') === null ? false : new Date().getTime() - parseInt(sessionStorage.getItem('lastUpdated')) > ONE_DAY_IN_MILLISECONDS;
 
-    // fetch all country data from API and store it in session storage - timeout will force a refresh of data once per day
+    // fetch all country data from API and store it in session storage - timeout/dataOutOfDate will force a refresh of data once per day - if error fetching occurs clear session storage
     useEffect(() => {
         if(countries.length === 0 || dataOutOfDate){
             setIsLoaded(false);
@@ -42,8 +42,6 @@ function AllFlagsContainer({searchString, lightMode}){
 
                     const timeoutId = setTimeout(() => {
                         setCountries([]);
-                        sessionStorage.removeItem('countryData');
-                        sessionStorage.removeItem('lastUpdated');
                     }, ONE_DAY_IN_MILLISECONDS);
                     return () => {
                         clearTimeout(timeoutId);
@@ -52,7 +50,6 @@ function AllFlagsContainer({searchString, lightMode}){
                 .catch((err) => {
                     setIsLoaded(true);
                     setError(err);
-                    setCountries([]);
                     sessionStorage.removeItem('countryData');
                     sessionStorage.removeItem('lastUpdated');
                 });
