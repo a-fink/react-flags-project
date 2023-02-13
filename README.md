@@ -13,7 +13,7 @@
 ## Refactoring Goals 2 Months Later
 - Gauge how much I have learned about React after additional time/projects
 - Practice refactoring an existing application to improve efficiency, code readability, and user experience
-    - For example: Greatly improved application efficiency by pulling data from the API once a day and storing it in session storage. Filter and sort options now run against the stored data, rather than making new API calls every time the options change.
+    - For example: Greatly improved application efficiency by pulling data from the API once a day and running all filter and sort operations against the locally stored data.
 
 ## Features
 Users can:
