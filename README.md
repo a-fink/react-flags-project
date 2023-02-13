@@ -10,7 +10,7 @@
 - To cement my knowledge of React including functional components and hooks
 - To explore the use of React Router for front end routing and single-page functionality
 
-## Refactoring Goals 2 Months Later
+## Refactoring Goals 3 Months Later
 - Gauge how much I have learned about React after additional time/projects
 - Practice refactoring an existing application to improve efficiency, code readability, and user experience
     - For example: Greatly improved application efficiency by pulling data from the API once a day and running all filter and sort operations against the locally stored data.
