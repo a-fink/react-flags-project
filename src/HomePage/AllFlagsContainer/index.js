@@ -1,16 +1,16 @@
 import SmallFlagContainer from "../SmallFlagContainer";
 import './AllFlagsContainer.css';
 import {Redirect} from 'react-router-dom';
-import {useState, useEffect} from 'react';
+import {useState, useEffect, useMemo} from 'react';
 
-// input - search string from parent, variable for which color mode page is in
-// returns - jsx component - either a div containing small flag containers, a loading message, or a redirect to the error page
-function AllFlagsContainer({searchString, lightMode}){
+// input - search string, filter string, variable for which color mode page is in
+// returns - jsx component - will be either a div containing small flag containers, a loading message, or a redirect to the error page
+function AllFlagsContainer({searchString, filterString, lightMode}){
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
 
     const [error, setError] = useState(null);
     const [isLoaded, setIsLoaded] = useState(false);
-    const [countries, setCountries] = useState(JSON.parse(sessionStorage.getItem('countryData')) || []);
+    const [countries, setCountries] = useState(sessionStorage.getItem('countryData') === null ? [] : JSON.parse(sessionStorage.getItem('countryData')));
 
     const ONE_DAY_IN_MILLISECONDS = 86400000;
 
@@ -25,19 +25,9 @@ function AllFlagsContainer({searchString, lightMode}){
             fetch(`https://restcountries.com/v3.1/all`)
                 .then(res => res.json())
                 .then((result) => {
-                    setIsLoaded(true);
-
-                    // if result from API has a message property then no data was found, otherwise sort result countries in alphabetical order
-                    // if(!result.message){
-                    //     result.sort((a, b) => {
-                    //         if(a.name.common < b.name.common) return -1;
-                    //         else if(a.name.common > b.name.common) return 1;
-                    //         else return 0;
-                    //     });
-                    // }
-
                     sessionStorage.setItem('countryData', JSON.stringify(result));
                     sessionStorage.setItem('lastUpdated', JSON.stringify(new Date().getTime()));
+                    setIsLoaded(true);
                     setCountries(result);
 
                     const timeoutId = setTimeout(() => {
@@ -48,16 +38,45 @@ function AllFlagsContainer({searchString, lightMode}){
                     };
                 })
                 .catch((err) => {
-                    setIsLoaded(true);
-                    setError(err);
                     sessionStorage.removeItem('countryData');
                     sessionStorage.removeItem('lastUpdated');
+                    setIsLoaded(true);
+                    setError(err);
                 });
         }
+
         else{
             setIsLoaded(true);
         }
     }, [countries, dataOutOfDate]);
+
+    // filter and alphabetize the data to get the countries to show the user - search/filter currently run independently, so at most one of those if statements will be true
+    // memoize this value so we only re-calculate it when search or filter parameters change, or there has been a change in the underlying country data
+    const visibleCountries = useMemo(() => {
+        let visibleArray = countries;
+
+        if(searchString !== ''){
+            const searchStringLower = searchString.toLowerCase();
+            visibleArray = visibleArray.filter(country => {
+                return country.name.common.toLowerCase().includes(searchStringLower) || country.name.official.toLowerCase().includes(searchStringLower);
+            });
+        }
+
+        if(filterString !== ''){
+            const filterStringLower = filterString.toLowerCase();
+            visibleArray = visibleArray.filter(country => country.region.toLowerCase() === filterStringLower);
+        }
+
+        if(visibleArray.length > 0){
+            visibleArray.sort((a, b) => {
+                if(a.name.common < b.name.common) return -1;
+                else if(a.name.common > b.name.common) return 1;
+                else return 0;
+            });
+        }
+
+        return visibleArray;
+    }, [searchString, filterString, countries]);
 
     // if an error happened redirect to the error page
     if(error){
@@ -73,8 +92,8 @@ function AllFlagsContainer({searchString, lightMode}){
         );
     }
 
-    // if data has loaded and a message key exists then no results were found - show no results message to user
-    else if(isLoaded && countries.message){
+    // if data has loaded and visibleCountries is empty - show no results message to user
+    else if(isLoaded && visibleCountries.length === 0){
         return (
             <div className="all-flags_no-results">
                 <p className={`all-flags_message ${modeClass}`}>Your search returned no matching countries, please try again...</p>
@@ -82,11 +101,11 @@ function AllFlagsContainer({searchString, lightMode}){
         );
     }
 
-    // if data was found found map all items in the countries array to small flag container components
+    // show user the sorted/filtered results as SmallFlagContainer components
     return (
         <div className="all-flags-container">
             {
-                countries.map(country => {
+                visibleCountries.map(country => {
                     return (
                         <SmallFlagContainer
                             name={country.name.common}

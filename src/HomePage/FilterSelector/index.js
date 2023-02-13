@@ -3,7 +3,7 @@ import {useState} from 'react';
 
 // inputs - event handler from parent, variable for which color mode page is in
 // return - component that renders top level button, then depending on state the sub-options with the event handler
-function FilterSelector({clickHandler, lightMode}) {
+function FilterSelector({filterClickHandler, lightMode}) {
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
 
     // state for whether the drop down portion should be visible - starts off
@@ -21,12 +21,12 @@ function FilterSelector({clickHandler, lightMode}) {
             </button>
             {!showDropDown ? null :
                 <div className={`drop-down-menu ${modeClass}`}>
-                    <button className='drop-down-button' onClick={clickHandler} id='all'>All</button>
-                    <button className='drop-down-button' onClick={clickHandler} id='region/africa'>Africa</button>
-                    <button className='drop-down-button' onClick={clickHandler} id='region/americas'>Americas</button>
-                    <button className='drop-down-button' onClick={clickHandler} id='region/asia'>Asia</button>
-                    <button className='drop-down-button' onClick={clickHandler} id='region/europe'>Europe</button>
-                    <button className='drop-down-button' onClick={clickHandler} id='region/oceania'>Oceania</button>
+                    <button className='drop-down-button' onClick={filterClickHandler} id='all'>All</button>
+                    <button className='drop-down-button' onClick={filterClickHandler} id='Africa'>Africa</button>
+                    <button className='drop-down-button' onClick={filterClickHandler} id='Americas'>Americas</button>
+                    <button className='drop-down-button' onClick={filterClickHandler} id='Asia'>Asia</button>
+                    <button className='drop-down-button' onClick={filterClickHandler} id='Europe'>Europe</button>
+                    <button className='drop-down-button' onClick={filterClickHandler} id='Oceania'>Oceania</button>
                 </div>
             }
         </div>

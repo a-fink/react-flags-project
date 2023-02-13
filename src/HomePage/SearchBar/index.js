@@ -2,7 +2,7 @@ import './SearchBar.css';
 
 // inputs - event handler, search string, and variable for which color mode page is in
 // return - jsx element rendering search bar with search string
-function SearchBar({changeHandler, searchDisplay, lightMode}) {
+function SearchBar({searchChangeHandler, searchString, lightMode}) {
     const modeClass = (lightMode ? 'light-element' : 'dark-element');
     const colorClass = (lightMode ? 'gray-text' : 'white-text');
 
@@ -13,9 +13,9 @@ function SearchBar({changeHandler, searchDisplay, lightMode}) {
             </div>
             <input
                 type="text"
-                placeholder='Search by common or native name...'
-                value={searchDisplay}
-                onChange={changeHandler}
+                placeholder='Search by common or official name...'
+                value={searchString}
+                onChange={searchChangeHandler}
                 className="search-bar"
             />
         </div>
