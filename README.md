@@ -6,9 +6,14 @@
 
 [Live Site](https://flagsoftheworld-afink.netlify.app)
 
-## Goals
+## Original Project Goals
 - To cement my knowledge of React including functional components and hooks
 - To explore the use of React Router for front end routing and single-page functionality
+
+## Refactoring Goals 2 Months Later
+- Gauge how much I have learned about React after additional time/projects
+- Practice refactoring an existing application to improve efficiency, code readability, and user experience
+    - For example: Greatly improved application efficiency by pulling data from the API once a day and storing it in session storage. Filter and sort options now run against the stored data, rather than making new API calls every time the options change.
 
 ## Features
 Users can:
@@ -33,6 +38,8 @@ Users can:
 
 ## Recently Completed Improvements
 - Light mode / dark mode choice is now stored in session storage so it persists through page refresh / redirect
+- Country data is now pulled from the API once per day and stored in session storage, with triggers to fetch new data if stored data is out of date
+- Searching and filtering operations are now run against stored data rather than making a new API call each time
 
 ## Planned Future Improvements
 - Further split out container components from presentational components

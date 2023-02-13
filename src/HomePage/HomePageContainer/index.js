@@ -7,36 +7,27 @@ import { useState } from 'react';
 // inputs - variable for which color mode page is in to pass on to child elements
 // outputs - component that renders all the home page elements
 function HomePageContainer({lightMode}){
-    // searchString controls search parameter sent to API, searchDisplay controls form inputs from user
-    const [searchString, setSearchString] = useState('all');
-    const [searchDisplay, setSearchDisplay] = useState('');
+    // for now searching and filtering will be independent operations - using one will clear the other
+    const [searchString, setSearchString] = useState('');
+    const [filterString, setFilterString] = useState('');
 
-    // click handler to be passed to filter drop down menu
-    const clickHandler = (event) => {
-        setSearchString(event.target.id);
-        setSearchDisplay('');
+    const filterClickHandler = (event) => {
+        setFilterString(event.target.id === 'all' ? '' : event.target.id);
+        setSearchString('');
     }
 
-    // change handler to be passed to search bar - set input text and API search value
-    const changeHandler = (event) => {
-        setSearchDisplay(event.target.value);
-
-        if(event.target.value === ''){
-            setSearchString('all');
-        }
-
-        else{
-            setSearchString(`name/${event.target.value}`);
-        }
+    const searchChangeHandler = (event) => {
+        setSearchString(event.target.value);
+        setFilterString('');
     }
 
     return (
         <div className="home-page-container">
             <div className="search-container">
-                <SearchBar searchDisplay={searchDisplay} changeHandler={changeHandler} lightMode={lightMode}/>
-                <FilterSelector clickHandler={clickHandler} lightMode={lightMode}/>
+                <SearchBar searchString={searchString} searchChangeHandler={searchChangeHandler} lightMode={lightMode}/>
+                <FilterSelector filterClickHandler={filterClickHandler} lightMode={lightMode}/>
             </div>
-            <AllFlagsContainer searchString={searchString} lightMode={lightMode}/>
+            <AllFlagsContainer searchString={searchString} filterString={filterString} lightMode={lightMode}/>
         </div>
     );
 }
