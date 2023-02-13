@@ -38,7 +38,7 @@ Users can:
 
 ## Recently Completed Improvements
 - Light mode / dark mode choice is now stored in session storage so it persists through page refresh / redirect
-- Country data is now pulled from the API once per day and stored in session storage, with triggers to fetch new data if stored data is out of date
+- Country data is now pulled from the API once per day and stored in session storage, with triggers to fetch a new version if it's out of date
 - Searching and filtering operations are now run against stored data rather than making a new API call each time
 
 ## Planned Future Improvements
@@ -50,7 +50,7 @@ Users can:
 - Add loading placeholder for border countries in single country view
 - Store last search parameters used on main page so when back button is clicked the same results display
 - Test page accessibility and add additional features for a more accessible design
-- Add additional styling to indicate that search results on the home page are clickable on mobile
+- Add additional styling to make it clearer that search results on the home page are clickable on mobile
 - Explore additional styling libraries such as Bootstrap, Sass, or Tailwind
 
 ### Acknowledgements
