@@ -1,6 +1,5 @@
 # Flags of the World
-
-![Light and dark mode front page image](/readme-images/combined-image.png "Project Image")
+https://user-images.githubusercontent.com/107282070/223630748-d4c1d0d1-81f3-4940-b875-00713e6d7c63.mp4
 
 ## Live Site
 
