@@ -42,11 +42,9 @@ Users can:
 - Searching and filtering operations are now run against stored data rather than making a new API call each time
 
 ## Planned Future Improvements
-- Further split out container components from presentational components
 - Add additional filtering options (sub-region)
 - Make filtering menu hide when clicking elsewhere on the page, and have filter options indicate if they are active
 - Add additional search options (capital, language, country code, etc.)
-- Add search functionality to the single country view
 - Add loading placeholder for border countries in single country view
 - Store last search parameters used on main page so when back button is clicked the same results display
 - Test page accessibility and add additional features for a more accessible design
